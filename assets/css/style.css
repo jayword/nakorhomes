@@ -8,10 +8,15 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+*
+{ box-sizing: border-box;}
+
 body {
   background: #fff;
   color: #666666;
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -87,7 +92,67 @@ h1, h2, h3, h4, h5, h6 {
   display: table;
   width: 100%;
   height: 100vh;
-  background: url(../img/Website-1.png) top center;
+  /*background: url(../img/Website-1.png) top center;*/
+  background-size: cover;
+  background: transparent;
+}
+#heroi {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+}
+/* styling for the slideshow on the homepage */
+ul.slideshow {
+  list-style: none;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;}
+  
+ul.slideshow li {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;}
+ 
+ul.slideshow li.show {
+  z-index: 0;}
+ 
+ul img {
+  border: none;}
+ 
+#slideshow-caption {
+  width: 100%;
+  height: 38px;
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  z-index: 0;
+  }
+ 
+#slideshow-caption .slideshow-caption-container {
+  padding: 10px 25px 10px 25px; 
+  background: transparent url(../images/transparent.png) repeat;  
+  z-index: 0;}
+ 
+#slideshow-caption p {
+  padding: 0;
+  font: normal 130% arial, sans-serif;
+  color: #FFF;}
+/* styling for the slideshow on the homepage ends */
+
+#heroi {
+  display: table;
+  width: 100%;
+  position: absolute;
+  z-index: 500;
+  /*background: url(../img/Website-1.png) top center;*/
   background-size: cover;
 }
 
@@ -95,26 +160,30 @@ h1, h2, h3, h4, h5, h6 {
   #hero {
     background-attachment: fixed;
   }
+  #heroic {
+    background-attachment: fixed;
+  }
 }
 
-#hero .hero-logo {
-  margin: 20px;
+#heroi .hero-logo {
+  margin: 10px;
 }
 
-#hero .hero-logo img {
+#heroi .hero-logo img {
   max-width: 100%;
 }
 
-#hero .hero-container {
+#heroi .hero-container {
   background: rgba(255, 255, 255, 0);
   display: table-cell;
   margin: 0;
   padding: 0;
   text-align: center;
   vertical-align: middle;
+  z-index: 99999;
 }
 
-#hero h1 {
+#heroi h1 {
   margin: 30px 0 10px 0;
   font-weight: 700;
   line-height: 48px;
@@ -123,39 +192,94 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-  #hero h1 {
+  
+  #heroi h1 {
     font-size: 28px;
     line-height: 36px;
   }
+  
 }
 
-#hero h2 {
+#heroi h2 {
   color: #00f;
   margin-bottom: 50px;
 }
 
-#hero h2 span {
-  color: #00f;
+#heroi h2 span {
+  color: #0ff;
   transition: 0.3s;
   border-bottom: 2px solid #03C4EB;
 }
 
 @media (max-width: 768px) {
-  #hero h2 {
+  #heroi h2 {
     font-size: 24px;
     line-height: 26px;
     margin-bottom: 30px;
   }
-  #hero h2 .rotating {
+  #heroi h2 .rotating {
     display: block;
   }
 }
 
-#hero .rotating > .animated {
+@media(min-width: 571px) and (max-width: 790px) {
+	#heroi {
+		margin-top: -105px;
+	}
+}
+
+@media(min-width: 451px) and (max-width: 570px) {
+	#heroi {
+		margin-top: -195px;
+	}
+	#heroi .hero-logo {
+	  margin-top: 80px;
+	}
+	#heroi .actions {
+		margin-top: -30px;
+	}
+}
+
+@media(min-width: 250px) and (max-width: 450px) {
+  #heroi h2 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 30px;
+  }
+  #heroi h2 .rotating {
+    display: block;
+  }
+  #heroi h1 {
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 30px;
+  }
+  #heroi .hero-logo img {
+	max-width: 40%;
+	}
+	#heroi {
+		margin-top: -130px;
+	}
+	#heroi h1 {
+		margin-top: -20px;
+	}
+	#heroi h2 {
+		margin-top: -10px;
+	}
+	#heroi .actions {
+		margin-top: -30px;
+	}
+	#heroi .actions .btn-services {
+		color: #000000;
+		border: 1px solid #000000;
+	}
+}
+
+#heroi .rotating > .animated {
   display: inline-block;
 }
 
-#hero .actions a {
+#heroi .actions a {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -168,24 +292,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px;
 }
 
-#hero .btn-get-started {
+#heroi .btn-get-started {
   background: #03C4EB;
   border: 2px solid #03C4EB;
   color: #fff;
 }
 
-#hero .btn-get-started:hover {
+#heroi .btn-get-started:hover {
   background: none;
   border: 2px solid #fff;
   color: #fff;
 }
 
-#hero .btn-services {
+#heroi .btn-services {
   border: 2px solid #fff;
   color: #fff;
 }
 
-#hero .btn-services:hover {
+#heroi .btn-services:hover {
   background: #03C4EB;
   border: 2px solid #03C4EB;
 }
